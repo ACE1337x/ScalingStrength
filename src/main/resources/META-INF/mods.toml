@@ -1,0 +1,11 @@
+modLoader="fabric"
+loaderVersion=">=0.14.0"
+license="MIT"
+entrypoints = {
+"main": [
+"com.example.scalingstrength.ScalingStrengthMod"
+]
+}
+
+[dependencies]
+fabric-api = "*"
