@@ -57,7 +57,7 @@ public class StatusEffectsMixin
                         EntityAttributes.GENERIC_ATTACK_DAMAGE,
                         "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9", // Same as vanilla Strength
                         1.0,
-                        EntityAttributeModifier.Operation.MULTIPLY_TOTAL
+                        EntityAttributeModifier.Operation.MULTIPLY_BASE
                 );
 
                 ScalingStrengthMod.LOGGER.info( "Registering Strength Effect Override" );
