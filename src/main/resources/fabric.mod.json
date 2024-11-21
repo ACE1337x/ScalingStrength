@@ -11,5 +11,8 @@
   },
   "depends": {
     "fabric-api": "*"
-  }
+  },
+  "mixins": [
+    "scalingstrength.mixins.json"
+  ]
 }

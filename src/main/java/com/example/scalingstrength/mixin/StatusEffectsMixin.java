@@ -1,3 +1,4 @@
+
 package com.example.scalingstrength.mixin;
 
 import net.minecraft.entity.effect.StatusEffect;
@@ -10,10 +11,10 @@ import net.minecraft.registry.Registry;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.lang.reflect.Constructor;
+import java.util.UUID;
 
 @Mixin(StatusEffects.class)
 public class StatusEffectsMixin {
@@ -24,6 +25,7 @@ public class StatusEffectsMixin {
         try {
             // Check if the effect being registered is the STRENGTH effect
             if (id.equals("strength")) {
+
                 // Access the DamageModifierStatusEffect class via reflection
                 Class<?> damageModifierClass = Class.forName("net.minecraft.entity.effect.DamageModifierStatusEffect");
 
@@ -33,13 +35,13 @@ public class StatusEffectsMixin {
 
                 // Instantiate DamageModifierStatusEffect using the constructor
                 StatusEffect modifiedStrengthEffect = (StatusEffect) constructor.newInstance(
-                        StatusEffectCategory.BENEFICIAL, 16762624, 30.0F
+                        StatusEffectCategory.BENEFICIAL, 16762624, 1.0
                 );
 
                 // Add a custom attribute modifier to scale the damage based on potion level
                 modifiedStrengthEffect.addAttributeModifier(EntityAttributes.GENERIC_ATTACK_DAMAGE,
-                        "ScalingStrengthModifier",
-                        0.2F,  // 20% increase per level
+                        "648D7064-6A60-4F59-8ABE-C2C23A6DD7A9",
+                        0.0F,  // 20% increase per level
                         EntityAttributeModifier.Operation.MULTIPLY_TOTAL);
 
                 // Register the modified STRENGTH effect instead of the original
